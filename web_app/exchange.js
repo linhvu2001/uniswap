@@ -348,7 +348,7 @@ const token_abi = [
     "outputs": [
       {
         "internalType": "bool",
-        "name": "newOwner",
+        "name": "",
         "type": "bool"
       }
     ],
@@ -919,19 +919,18 @@ const sanityCheck = async function () {
     var expected_tokens_added = 100 * state2.token_eth_rate;
     var state3 = await getPoolState();
     var user_tokens3 = await token_contract.connect(provider.getSigner(defaultAccount)).balanceOf(defaultAccount);
-    score += check(
-      "Test adding liquidity",
-      swap_fee[0],
-      state3.eth_liquidity == (state2.eth_liquidity + 100) &&
-      (state3.token_liquidity - (state2.token_liquidity + expected_tokens_added)).abs() < 5 &&
-      (int.parse(user_tokens3) - (int.parse(user_tokens2) - expected_tokens_added)).abs() < 5,
-    );
+    score += check("Test adding liquidity", swap_fee[0],
+      state3.eth_liquidity === (state2.eth_liquidity + 100) &&
+      Math.abs(state3.token_liquidity - (state2.token_liquidity + expected_tokens_added)) < 5 &&
+      Math.abs(Number(user_tokens3) - (Number(user_tokens2) - expected_tokens_added)) < 5);
 
-    // Accumulate some LP rewards
+
+    // accumulate some lp rewards
     for (var i = 0; i < 20; i++) {
       await swapETHForTokens(100, 1);
       await swapTokensForETH(100, 1);
     }
+
     var state4 = await getPoolState();
     var user_tokens4 = await token_contract.connect(provider.getSigner(defaultAccount)).balanceOf(defaultAccount);
     await removeLiquidity(10, 1);

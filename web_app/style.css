@@ -7,29 +7,53 @@
 */
 
 body {
- 	font-family: 'Source Sans Pro', 'Arial';
-	background-color:#EEE;
-	padding: 30px;
+	font-family: 'Source Sans Pro', 'Arial', sans-serif;
+	font-size: 16px;
 }
+
+h1,
+h2,
+h3,
+h4 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
 .main {
 	width: 50%;
 }
+
 .panel {
-	position: absolute;
-	top: 20px;
 	width: 300px;
 	background-color: #CCC;
 	padding: 20px;
+	border-radius: 8px;
+	margin-bottom: 20px;
 }
-.panel_left {
-	left: 20px;
-}
+
 .panel_right {
-	right: 20px;
+	float: right;
 }
+
 #all_users {
 	color: #666;
 }
+
 .wallet_addresses_panel {
 	position: absolute;
 	width: 300px;
@@ -41,23 +65,56 @@ body {
 	font-size: 10px;
 	opacity: 0.5;
 }
+
 #amount {
 	width: 140px;
 }
 
 label {
-	display:block;
-	margin-bottom:10px;
-}
-input {
-	width: 280px;
-	padding: 10px;
+	display: block;
 	margin-bottom: 10px;
 }
+
+input[type="text"],
 button {
-	display: block;
-	margin: 30px 0;
-	padding: 15px 30px;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
 	border: 1px solid #666;
-	background: #CCC;
+	border-radius: 4px;
+	background-color: #EEE;
+	font-size: 14px;
+}
+
+button {
+	background-color: #666;
+	color: #FFF;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #444;
+}
+
+#header {
+	margin-bottom: 20px;
+}
+
+#sub-title-container {
+	margin-bottom: 20px;
+}
+
+#main-display {
+	margin-bottom: 20px;
+}
+
+.swap-control-title,
+.liquidity-control-title {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.swap-control-buttons,
+.liquidity-control-buttons {
+	margin-top: 20px;
 }

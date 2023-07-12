@@ -957,6 +957,6 @@ const sanityCheck = async function() {
 // Sleep 3s to ensure init() finishes before sanityCheck() runs on first load.
 // If you run into sanityCheck() errors due to init() not finishing, please extend the sleep time.
 
-// setTimeout(function () {
-//   sanityCheck();
-// }, 3000);
+setTimeout(function () {
+  sanityCheck();
+}, 3000);
